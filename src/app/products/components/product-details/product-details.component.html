@@ -1,0 +1,16 @@
+<div class="container">
+<div class="product-details" *ngIf="!loading">
+  <div class="image-container">
+    <img [src]="data.image" alt="{{ data.title }}">
+  </div>
+
+  <div class="info-container">
+    <h2>{{ data.title }}</h2>
+    <p class="price">${{ data.price }}</p>
+    <p class="description">{{ data.description }}</p>
+    <button class="btn btn-primary">Add to Cart</button>
+  </div>
+</div>
+
+<app-spinner *ngIf="loading" />
+</div>

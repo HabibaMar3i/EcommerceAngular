@@ -1,0 +1,34 @@
+<div class="carts">
+  <h2>Your Cart</h2>
+
+  <div *ngIf="cartProducts.length === 0" class="empty-cart">
+    <p>Your cart is empty. Please add some products!</p>
+  </div>
+
+  <div *ngFor="let product of cartProducts; let index = index" class="cart-item">
+    <div class="item-details">
+      <img src= "{{product.item.image}}" alt="{{ product.item.title }}" class="item-image">
+      <div class="item-info">
+        <h3>{{ product.item.title }}</h3>
+        <p></p>
+        <p>Price: ${{product.item.price}} Total Price: ${{ product.item.price * product.quantity}}</p>
+
+        <div class="quantity-controls">
+          <button class="btn btn-secondary" (click)="minusQuantity(index)" min="1">-</button>
+          <input type="number" class="amount-input"[(ngModel)]="product.quantity" (change)="detectChange()"/>
+          <button class="btn btn-secondary" (click)="plusQuantity(index)">+</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-danger" (click)="deleteProduct(index)">Delete</button>
+  </div>
+
+  <div class="total-section">
+    <p>Total Quantity: {{cartProducts.length}}</p>
+    <p>Total Price: ${{total}}</p>
+    <button class="btn btn-primary" (click)="clearCart()">Clear Cart</button>
+    <button class="btn btn-success" (click)="addCart()">Checkout</button>
+  </div>
+
+  <div class="alert alert-success mt-2" role="alert" *ngIf="success">Your order is successfully sent!</div>
+</div>

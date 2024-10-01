@@ -1,0 +1,75 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // Ensures the content is distributed evenly
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%; // Ensures the card takes up all available space
+
+  .img-responsive {
+    width: 100%;
+    height: 200px; // Set a fixed height for all images
+    object-fit: contain; // Ensures the image covers the area without distortion
+    border-radius: 6px;
+  }
+
+  .body {
+    margin-top: 12px;
+    flex-grow: 1; // Ensures the body takes up available space
+
+    h4 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #666;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .px-3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+
+    .btn {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 5px;
+
+      &.btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: #fff;
+      }
+
+      &.btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #fff;
+      }
+    }
+
+    input.form-contol {
+      width: 60px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-size: 1rem;
+      color: #333;
+      font-weight: bold;
+    }
+  }
+}
